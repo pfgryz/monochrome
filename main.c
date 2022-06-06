@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-extern unsigned int monochrome(ImageInfo *imageInfo,
+extern void monochrome(ImageInfo *imageInfo,
                            unsigned int x1,
                            unsigned int y1,
                            unsigned int x2,
@@ -72,7 +72,7 @@ int main(int argc, char **argv) {
     }
 
     // monochrome
-    unsigned int result = monochrome(imageInfo, other[0], other[1], other[2], other[3], other[4]);
+    monochrome(imageInfo, other[0], other[1], other[2], other[3], other[4]);
 
     // save bitmap
     unsigned int error = saveBMP(outputFilename, imageInfo);
