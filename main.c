@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-extern "C" unsigned int monochrome(ImageInfo *imageInfo,
+extern unsigned int monochrome(ImageInfo *imageInfo,
                            unsigned int x1,
                            unsigned int y1,
                            unsigned int x2,
