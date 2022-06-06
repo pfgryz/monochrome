@@ -15,11 +15,14 @@ void freeImage(ImageInfo *imageInfo) {
 ImageInfo *readBMP(const char *filename) {
     FILE *file = fopen(filename, "rb");
 
-    if (file == NULL)
+    if (file == NULL) {
+        printf("Cannot open input file\n");
         return NULL;
+    }
 
     BMPHeader bmpHeader;
     if (fread((void *) &bmpHeader, sizeof(bmpHeader), 1, file) != 1) {
+        fprintf("Cannot read bitmap header\n");
         fclose(file);
         return NULL;
     }

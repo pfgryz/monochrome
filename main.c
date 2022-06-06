@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
         printf("Invalid threshold. Use /monochrome --help/ to get more information\n");
         return 0;
     }
-    
+
     // read bitmap
     ImageInfo *imageInfo = readBMP(inputFilename);
     if (imageInfo == NULL) {
@@ -75,7 +75,14 @@ int main(int argc, char **argv) {
     unsigned int result = monochrome(imageInfo, other[0], other[1], other[2], other[3], other[4]);
 
     // save bitmap
-    saveBMP(outputFilename, imageInfo);
+    unsigned int error = saveBMP(outputFilename, imageInfo);
+    if (error == 1) {
+        printf("Cannot open a file for output bitmap\n");
+        return 0;
+    } else if (error == 2 || error == 3) {
+        printf("Cannot save bitmap to output file\n");
+        return 0;
+    }
 
     return 0;
 }
