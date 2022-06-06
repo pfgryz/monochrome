@@ -1,4 +1,4 @@
-CC=g++
+CC=gcc
 ASMBIN=nasm
 CC_FILENAME=main
 ASM_FILENAME=monochrome
